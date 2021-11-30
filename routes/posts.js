@@ -1,9 +1,15 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 
-// Get all posts
+// Get all posts or all posts with a specific userId
 router.get('/', (req, res) => {
-    res.status(200).json(Post);
+    const queryUserId = req.query.userId;
+    if(queryUserId) {
+        const postsWithUserId = Post.filter(post => post.userId === Number(queryUserId));
+        res.status(200).json(postsWithUserId);
+    } else {
+        res.status(200).json(Post);
+    }
 })
 
 // Get post by id
