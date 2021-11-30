@@ -11,6 +11,7 @@
 * Respond with 200 status code if the token is valid, 401 status code otherwise.
 
 
+
 ## API Reference
 
 #### Get home page
@@ -144,6 +145,8 @@
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of post to delete |
+
+  
 
   
 ## Technologies Used
