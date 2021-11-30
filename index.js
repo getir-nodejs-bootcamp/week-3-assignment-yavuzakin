@@ -1,8 +1,12 @@
 // Import packages
+const dotenv = require('dotenv')
 const express = require('express');
 const app = express();
 const userRoute = require('./routes/users');
 const postRoute = require('./routes/posts');
+
+// To be able to use dotenv file
+dotenv.config();
 
 // To be able to take json objects inside request body
 app.use(express.json());
