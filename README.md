@@ -11,8 +11,18 @@
 * Respond with 200 status code if the token is valid, 401 status code otherwise.
 
 
-
 ## API Reference
+
+All requests need jwt except /jsonwebtoken. Make a get request to /jsonwebtoken to 
+get a valid jwt and then put it inside your request's header with token key. 
+
+{ **key**: token, **value**: Bearer ${jsonwebtoken} }
+
+#### Get json web token
+
+```http
+  GET /jsonwebtoken
+```
 
 #### Get home page
 
@@ -26,12 +36,6 @@
   GET /about
 ```
 
-#### Get json web token
-
-```http
-  GET /jsonwebtoken
-```
-
 #### Get all users
 
 ```http
@@ -43,46 +47,49 @@
 ```http
   POST /users
 ```
+| Request Body |
+| :-------- |
+| **Required**. All the fields of [user model](##models)|
 
 #### Get user by id
 
 ```http
-  GET /users/${id}
+  GET /users/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of user to fetch |
+| `id`      | `number (1-10)` | **Required**. Id of user to fetch |
 
 #### Update user with PUT
 
 ```http
-  PUT /users/${id}
+  PUT /users/:id
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of user to modify |
+| Parameter | Type     | Description                       | Request Body |
+| :-------- | :------- | :-------------------------------- | :------------ |
+| `id`      | `number (1-10)` | **Required**. Id of user to modify | **Required**. All fields of [user model](##models) |
 
 #### Update user with PATCH
 
 ```http
-  PATCH /users/${id}
+  PATCH /users/:id
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of user to modify |
+| Parameter | Type     | Description                       | Request Body |
+| :-------- | :------- | :-------------------------------- | :----------- |
+| `id`      | `number (1-10)` | **Required**. Id of user to modify | Only the fields of [user model](##models) you would like to update |
 
 #### Delete user by id
 
 ```http
-  DELETE /users/${id}
+  DELETE /users/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of user to delete |
+| `id`      | `number (1-10)` | **Required**. Id of user to delete |
 
 #### Get all posts
 
@@ -95,6 +102,9 @@
 ```http
   POST /posts
 ```
+| Request Body |
+| :-------- |
+| **Required**. All the fields of post model|
 
 #### Get all posts by userId
 
@@ -104,49 +114,98 @@
 
 | Query    | Value     | Type     | Description                  |
 | :------- | :-------- | :------- | :-------------------------------- |
-| `userId` | `id`      | `string` | **Optional**. User id of posts to fetch |
+| `userId` | `id`      | `number (1-10)` | **Optional**. User id of posts to fetch |
 
 #### Get post by id
 
 ```http
-  GET /posts/${id}
+  GET /posts/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of post to fetch |
+| `id`      | `number (1-100)` | **Required**. Id of post to fetch |
 
 #### Update post with PUT
 
 ```http
-  PUT /posts/${id}
+  PUT /posts/:id
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of post to modify |
+| Parameter | Type     | Description                       | Request Body |
+| :-------- | :------- | :-------------------------------- | :----------- |
+| `id`      | `number (1-100)` | **Required**. Id of post to modify | **Required**. All the fields of post model |
 
 #### Update post with PATCH
 
 ```http
-  PATCH /posts/${id}
+  PATCH /posts/:id
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of post to modify |
+| Parameter | Type     | Description                       | Request Body |
+| :-------- | :------- | :-------------------------------- | :----------- |
+| `id`      | `number (1-100)` | **Required**. Id of post to modify | Only the fields of post model you would like to update |
 
 #### Delete user by id
 
 ```http
-  DELETE /posts/${id}
+  DELETE /posts/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of post to delete |
+| `id`      | `number (1-100)` | **Required**. Id of post to delete |
 
   
+## Models
+
+```javascript
+const User = [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "city": "Gwenborough"
+      }
+    },
+    .
+    .
+    .,
+    {
+      "id": 10,
+      "name": "Clementina DuBuque",
+      "username": "Moriah.Stanton",
+      "email": "Rey.Padberg@karina.biz",
+      "address": {
+        "street": "Kattie Turnpike",
+        "city": "Lebsackbury"
+      }
+    }
+]
+```
+
+```javascript
+const Post = [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nrepreh..."
+    },
+    .
+    .
+    .,
+    {
+      "userId": 10,
+      "id": 100,
+      "title": "at nam consequatur ea labore ea harum",
+      "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque ..."
+    }
+]
+```
 
   
 ## Technologies Used
