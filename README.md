@@ -21,14 +21,21 @@
   
   npm start
 ```
+## Environment Variables
+
+To run this project, you will need to add the following environment variable to your .env file
+
+
+`JWT_SECRET_KEY`
 
 ## API Reference
 
 All requests need jwt except /jsonwebtoken. Make a get request to /jsonwebtoken to 
 get a valid jwt and then put it inside your request's header with token key. 
 
-{ **key**: token, **value**: Bearer ${jsonwebtoken} }
-
+```
+{ key: token, value: Bearer ${jsonwebtoken} }
+```
 #### Get json web token
 
 ```
