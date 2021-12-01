@@ -10,6 +10,17 @@
 * Include JWT in express app.
 * Respond with 200 status code if the token is valid, 401 status code otherwise.
 
+## Installation 
+
+```bash
+  git clone https://github.com/getir-nodejs-bootcamp/week-3-assignment-yavuzakin.git
+
+  cd into the folder
+
+  npm install
+  
+  npm start
+```
 
 ## API Reference
 
@@ -93,13 +104,13 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Get all posts
 
-```http
+```
   GET /posts
 ```
 
 #### Create a post
 
-```http
+```
   POST /posts
 ```
 | Request Body |
@@ -108,7 +119,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Get all posts by userId
 
-```http
+```
   GET /posts?userId=${id}
 ```
 
@@ -118,7 +129,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Get post by id
 
-```http
+```
   GET /posts/:id
 ```
 
@@ -128,7 +139,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Update post with PUT
 
-```http
+```
   PUT /posts/:id
 ```
 
@@ -138,7 +149,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Update post with PATCH
 
-```http
+```
   PATCH /posts/:id
 ```
 
@@ -148,7 +159,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Delete user by id
 
-```http
+```
   DELETE /posts/:id
 ```
 
