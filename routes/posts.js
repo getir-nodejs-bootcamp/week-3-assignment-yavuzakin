@@ -23,8 +23,13 @@ router.get('/:id', (req, res) => {
 
 // Create a post
 router.post('/', (req, res) => {
-    const newPost = { id: 101, ...req.body};
-    res.status(200).json(newPost); 
+    if(req.body.title && req.body.body && req.body.userId) {
+        const idOfNewPost = Post[Post.length - 1].id + 1;
+        const newPost = { id: idOfNewPost, ...req.body };
+        res.status(200).json(newPost);
+    } else {
+        res.status(400).json('Bad Request');
+    }
 })
 
 // Update post with put
