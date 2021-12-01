@@ -104,7 +104,7 @@ get a valid jwt and then put it inside your request's header with token key.
 ```
 | Request Body |
 | :-------- |
-| **Required**. All the fields of post model|
+| **Required**. All the fields of [post model](#models)|
 
 #### Get all posts by userId
 
@@ -114,7 +114,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 | Query    | Value     | Type     | Description                  |
 | :------- | :-------- | :------- | :-------------------------------- |
-| `userId` | `id`      | `number (1-10)` | **Optional**. User id of posts to fetch |
+| `userId` | `id`      | `number (1-10)` | **Required**. User id of posts to fetch |
 
 #### Get post by id
 
@@ -134,7 +134,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number (1-100)` | **Required**. Id of post to modify | **Required**. All the fields of post model |
+| `id`      | `number (1-100)` | **Required**. Id of post to modify | **Required**. All the fields of [post model](#models) |
 
 #### Update post with PATCH
 
@@ -144,7 +144,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number (1-100)` | **Required**. Id of post to modify | Only the fields of post model you'd like to update |
+| `id`      | `number (1-100)` | **Required**. Id of post to modify | Any fields of [post model](#models) you'd like to update |
 
 #### Delete user by id
 
