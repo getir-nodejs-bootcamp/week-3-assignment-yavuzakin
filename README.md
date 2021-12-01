@@ -20,31 +20,31 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Get json web token
 
-```http
+```
   GET /jsonwebtoken
 ```
 
 #### Get home page
 
-```http
+```
   GET /home
 ```
 
 #### Get about page
 
-```http
+```
   GET /about
 ```
 
 #### Get all users
 
-```http
+```
   GET /users
 ```
 
 #### Create a user
 
-```http
+```
   POST /users
 ```
 | Request Body |
@@ -53,7 +53,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Get user by id
 
-```http
+```
   GET /users/:id
 ```
 
@@ -63,7 +63,7 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Update user with PUT
 
-```http
+```
   PUT /users/:id
 ```
 
@@ -73,17 +73,17 @@ get a valid jwt and then put it inside your request's header with token key.
 
 #### Update user with PATCH
 
-```http
+```
   PATCH /users/:id
 ```
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number (1-10)` | **Required**. Id of user to modify | Only the fields of [user model](#models) you'd like to update |
+| `id`      | `number (1-10)` | **Required**. Id of user to modify | Any fields of [user model](#models) you'd like to update |
 
 #### Delete user by id
 
-```http
+```
   DELETE /users/:id
 ```
 
