@@ -67,7 +67,7 @@ get a valid jwt and then put it inside your request's header with token key.
 ```
 | Request Body |
 | :-------- |
-| **Required**. All the fields of [user model](#models)|
+| **Required**. All the fields of [user model](#models) except id|
 
 #### Get user by id
 
@@ -122,7 +122,7 @@ get a valid jwt and then put it inside your request's header with token key.
 ```
 | Request Body |
 | :-------- |
-| **Required**. All the fields of [post model](#models)|
+| **Required**. All the fields of [post model](#models) except id|
 
 #### Get all posts by userId
 
