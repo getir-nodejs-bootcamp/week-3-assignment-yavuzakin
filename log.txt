@@ -1,2 +1,1 @@
-GET request to --> /users/ <-- url. Created on Tue Nov 30 2021 20:57:43 GMT+0300 (GMT+03:00).
-POST request to --> /posts/ <-- url. Created on Tue Nov 30 2021 20:57:46 GMT+0300 (GMT+03:00).
+GET request to --> /api/v1/users/ <-- url. Created on Fri Dec 03 2021 17:52:17 GMT+0300 (GMT+03:00).
