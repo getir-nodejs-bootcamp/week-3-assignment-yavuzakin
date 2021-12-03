@@ -10,6 +10,7 @@
 * Include JWT in express app.
 * Respond with 200 status code if the token is valid, 401 status code otherwise.
 
+
 ## Installation 
 
 ```bash
@@ -21,25 +22,27 @@
   
   npm start
 ```
+    
 ## Environment Variables
 
-To run this project, you will need to add the following environment variable to your .env file
+To run this project, you will need to add the following environment variables to your .env file
 
 
-`JWT_SECRET_KEY`
+`JWT_SECRET_KEY`, `PORT`
 
-## API Reference
+  ## API Reference
 
-All requests need jwt except /jsonwebtoken. Make a get request to /jsonwebtoken to 
-get a valid jwt and then put it inside your request's header with token key. 
+All requests need access token except **/api/v1/jwt**. Make a get request to **/api/v1/jwt** to 
+get a valid access token and then put it inside your request's header. The key of access token must be **token**. 
+Access token expires in 3 days.
 
 ```
-{ key: token, value: Bearer ${jsonwebtoken} }
+{ token: Bearer ${accessToken} }
 ```
 #### Get json web token
 
 ```
-  GET /jsonwebtoken
+  GET /api/v1/jwt
 ```
 
 #### Get home page
@@ -57,117 +60,110 @@ get a valid jwt and then put it inside your request's header with token key.
 #### Get all users
 
 ```
-  GET /users
+  GET /api/v1/users
 ```
 
 #### Create a user
 
 ```
-  POST /users
+  POST /api/v1/users
 ```
 | Request Body |
 | :-------- |
-| **Required**. All the fields of [user model](#models) except id|
+| **Required**. All fields of [user model](#models) except id|
 
 #### Get user by id
 
 ```
-  GET /users/:id
+  GET /api/v1/users/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `number (1-10)` | **Required**. Id of user to fetch |
+| `id`      | `number` | **Required**. Id of user to fetch |
 
-#### Update user with PUT
+#### Update user with PUT method
 
 ```
-  PUT /users/:id
+  PUT /api/v1/users/:id
 ```
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :------------ |
-| `id`      | `number (1-10)` | **Required**. Id of user to modify | **Required**. All fields of [user model](#models) |
+| `id`      | `number` | **Required**. Id of user to modify | **Required**. All fields of [user model](#models) except id |
 
-#### Update user with PATCH
+#### Update user with PATCH method
 
 ```
-  PATCH /users/:id
+  PATCH /api/v1/users/:id
 ```
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number (1-10)` | **Required**. Id of user to modify | Any fields of [user model](#models) you'd like to update |
+| `id`      | `number` | **Required**. Id of user to modify | Any fields of [user model](#models) you'd like to update except id |
 
 #### Delete user by id
 
 ```
-  DELETE /users/:id
+  DELETE /api/v1/users/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `number (1-10)` | **Required**. Id of user to delete |
+| `id`      | `number` | **Required**. Id of user to delete |
 
 #### Get all posts
 
 ```
-  GET /posts
+  GET /api/v1/posts
 ```
+| Query    | Value     | Type     | Description                  |
+| :------- | :-------- | :------- | :-------------------------------- |
+| `userId` | `id`      | `number` | **Optional**. User id of posts to fetch |
 
 #### Create a post
 
 ```
-  POST /posts
+  POST /api/v1/posts
 ```
 | Request Body |
 | :-------- |
-| **Required**. All the fields of [post model](#models) except id|
-
-#### Get all posts by userId
-
-```
-  GET /posts?userId=${id}
-```
-
-| Query    | Value     | Type     | Description                  |
-| :------- | :-------- | :------- | :-------------------------------- |
-| `userId` | `id`      | `number (1-10)` | **Required**. User id of posts to fetch |
+| **Required**. All fields of [post model](#models) except id|
 
 #### Get post by id
 
 ```
-  GET /posts/:id
+  GET /api/v1/posts/:id
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `number (1-100)` | **Required**. Id of post to fetch |
+| `id`      | `number` | **Required**. Id of post to fetch |
 
-#### Update post with PUT
-
-```
-  PUT /posts/:id
-```
-
-| Parameter | Type     | Description                       | Request Body |
-| :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number (1-100)` | **Required**. Id of post to modify | **Required**. All the fields of [post model](#models) |
-
-#### Update post with PATCH
+#### Update post with PUT method
 
 ```
-  PATCH /posts/:id
+  PUT /api/v1/posts/:id
 ```
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number (1-100)` | **Required**. Id of post to modify | Any fields of [post model](#models) you'd like to update |
+| `id`      | `number` | **Required**. Id of post to modify | **Required**. All fields of [post model](#models) except id|
+
+#### Update post with PATCH method
+
+```
+  PATCH /api/v1/posts/:id
+```
+
+| Parameter | Type     | Description                       | Request Body |
+| :-------- | :------- | :-------------------------------- | :----------- |
+| `id`      | `number` | **Required**. Id of post to modify | Any fields of [post model](#models) you'd like to update |
 
 #### Delete user by id
 
 ```
-  DELETE /posts/:id
+  DELETE /api/v1/posts/:id
 ```
 
 | Parameter | Type     | Description                       |
@@ -175,10 +171,10 @@ get a valid jwt and then put it inside your request's header with token key.
 | `id`      | `number (1-100)` | **Required**. Id of post to delete |
 
   
-## Models
-
-```javascript
-const User = [
+## Data Models
+#### USERS
+```json
+[
     {
       "id": 1,
       "name": "Leanne Graham",
@@ -204,9 +200,9 @@ const User = [
     }
 ]
 ```
-
-```javascript
-const Post = [
+#### POSTS
+```json
+[
     {
       "userId": 1,
       "id": 1,

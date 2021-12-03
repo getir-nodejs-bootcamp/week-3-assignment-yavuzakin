@@ -1,8 +1,7 @@
-const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 
-router.get('/', (req, res) => {
-    // JWT
+// Get jwt
+exports.getJWT = (req, res) => {
     const accessToken = jwt.sign(
         {
             data: 'foobar'
@@ -12,7 +11,10 @@ router.get('/', (req, res) => {
             expiresIn: '3d'
         }
     );
-    res.status(200).json(accessToken);
-});
-
-module.exports = router;
+    res.status(200).json({
+        status: 'success',
+        data: {
+            accessToken
+        }
+    });
+}
