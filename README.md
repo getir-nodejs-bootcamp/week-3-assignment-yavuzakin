@@ -90,7 +90,7 @@ Access token expires in 3 days.
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :------------ |
-| `id`      | `number` | **Required**. Id of user to modify | **Required**. All fields of [user model](#data-models) except id |
+| `id`      | `number` | **Required**. Id of user to modify | **Required**. All fields of [user model](#users) except id |
 
 #### Update user with PATCH method
 
@@ -100,7 +100,7 @@ Access token expires in 3 days.
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number` | **Required**. Id of user to modify | Any fields of [user model](#data-models) you'd like to update except id |
+| `id`      | `number` | **Required**. Id of user to modify | Any fields of [user model](#users) you'd like to update except id |
 
 #### Delete user by id
 
@@ -128,7 +128,7 @@ Access token expires in 3 days.
 ```
 | Request Body |
 | :-------- |
-| **Required**. All fields of [post model](#data-models) except id|
+| **Required**. All fields of [post model](#posts) except id|
 
 #### Get post by id
 
@@ -148,7 +148,7 @@ Access token expires in 3 days.
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number` | **Required**. Id of post to modify | **Required**. All fields of [post model](#data-models) except id|
+| `id`      | `number` | **Required**. Id of post to modify | **Required**. All fields of [post model](#posts) except id|
 
 #### Update post with PATCH method
 
@@ -158,7 +158,7 @@ Access token expires in 3 days.
 
 | Parameter | Type     | Description                       | Request Body |
 | :-------- | :------- | :-------------------------------- | :----------- |
-| `id`      | `number` | **Required**. Id of post to modify | Any fields of [post model](#data-models) you'd like to update |
+| `id`      | `number` | **Required**. Id of post to modify | Any fields of [post model](#posts) you'd like to update |
 
 #### Delete user by id
 
