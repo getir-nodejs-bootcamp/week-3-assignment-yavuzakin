@@ -1,1 +1,4 @@
 GET request to --> /api/v1/users/ <-- url. Created on Fri Dec 03 2021 17:52:17 GMT+0300 (GMT+03:00).
+GET request to --> /api/v1/users/ <-- url. Created on Sun Dec 05 2021 15:23:02 GMT+0300 (GMT+03:00).
+GET request to --> /api/v1/jwt <-- url. Created on Sun Dec 05 2021 15:23:08 GMT+0300 (GMT+03:00).
+GET request to --> /api/v1/users/ <-- url. Created on Sun Dec 05 2021 15:25:42 GMT+0300 (GMT+03:00).
