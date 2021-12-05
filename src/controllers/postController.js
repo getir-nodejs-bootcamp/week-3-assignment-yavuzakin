@@ -17,16 +17,6 @@ exports.checkPost = (req, res, next) => {
     req.post = post;
     next();
 }
-// Check if request body has missing fields or has id
-exports.checkBody = (req, res, next) => {
-    if(!req.body.title || !req.body.body || !req.body.userId || req.body.id) {
-        return res.status(400).json({
-            status: 'fail',
-            message: 'Missing title, body, userId or has id'
-        });
-    }
-    next();
-}
 // Get all posts
 exports.getAllPosts = (req, res) => {
     const queryUserId = req.query.userId;

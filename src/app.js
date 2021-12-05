@@ -1,9 +1,7 @@
 // Import packages
 const express = require('express');
 // Routers
-const userRouter = require('./routes/userRoutes');
-const postRouter = require('./routes/postRoutes');
-const jwtRouter = require('./routes/jwtRoutes');
+const { userRouter, postRouter, jwtRouter } = require('./routes');
 // Common middlewares
 const verifyToken = require('./middlewares/verifyToken');
 const logRequestsToFile = require('./middlewares/logRequests');

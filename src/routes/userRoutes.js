@@ -1,18 +1,20 @@
 const router = require('express').Router();
 const userController = require('../controllers/userController');
+const { checkUserBody, checkUserBodyOptional } = require('../validations/userValidations');
+const validateRequestBody = require('../middlewares/validate');
 
 router.param('id', userController.checkUser);
 
 router
     .route('/')
     .get(userController.getAllUsers)
-    .post(userController.checkBody, userController.createUser);
+    .post(validateRequestBody(checkUserBody, 'body'), userController.createUser);
 
 router
     .route('/:id')
     .get(userController.getOneUser)
-    .put(userController.checkBody, userController.updateUserWithPut, userController.writeFileAfterUpdate)
-    .patch(userController.updateUserWithPatch, userController.writeFileAfterUpdate)
+    .put(validateRequestBody(checkUserBody, 'body'), userController.updateUserWithPut, userController.writeFileAfterUpdate)
+    .patch(validateRequestBody(checkUserBodyOptional, 'body'), userController.updateUserWithPatch, userController.writeFileAfterUpdate)
     .delete(userController.deleteUser);
 
 module.exports = router;

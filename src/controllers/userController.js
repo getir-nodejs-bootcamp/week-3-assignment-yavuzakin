@@ -17,17 +17,6 @@ exports.checkUser = (req, res, next) => {
     req.user = user;
     next();
 }
-// Check if request body has missing fields or has id
-exports.checkBody = (req, res, next) => {
-    if(!req.body.name || !req.body.username || !req.body.email || !req.body.address ||
-        !req.body.address.street || !req.body.address.city || req.body.id) {
-        return res.status(400).json({
-            status: 'fail',
-            message: 'Missing name, username, email, address, street, city or has id'
-        });
-    }
-    next();
-}
 // Get all users
 exports.getAllUsers = (req, res) => {
     res.status(200).json({
@@ -100,6 +89,8 @@ exports.deleteUser = (req, res) => {
                 status: 'success',
                 data: null
             });
+        } else {
+            console.log(err.message);
         }
     })
 }
