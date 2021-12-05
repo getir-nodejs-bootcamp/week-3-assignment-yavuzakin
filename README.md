@@ -168,7 +168,7 @@ Access token expires in 3 days.
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `number (1-100)` | **Required**. Id of post to delete |
+| `id`      | `number` | **Required**. Id of post to delete |
 
   
 ## Data Models
